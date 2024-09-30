@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>All Tickets</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100">
+    <!-- Sidebar -->
+   
+    <script src="https://cdn.tailwindcss.com"></script>
+    <div class="flex">
+        <aside class="w-64 bg-[#2A3143] text-gray-200 h-screen p-6">
+            <div class="flex items-center justify-center rounded-0 b mb-6">
+                <img class="rounded-full  border border-green-400" src="logo.png" alt="Logo" class="h-12 w-12 mb-4">
+            </div>
+            <nav>
+                <ul>
+                    <li class="mb-4">
+                        <a href="#" class="flex items-center px-4 py-2 text-sm font-medium text-gray-500 hover:text-white  rounded">
+                            <span>Dashboard</span>
+                        </a>
+                    </li>
+                    <li class="mb-4">
+                        <a href="#" class="flex items-center px-4 py-2 text-sm font-medium text-gray-500  hover:text-white rounded">
+                            <span>Airlines</span>
+                        </a>
+                    </li>
+                    <li class="mb-4">
+                        <a href="#" class="flex items-center px-4 py-2 text-sm font-medium text-gray-500  hover:text-white rounded">
+                            <span>Planes</span>
+                        </a>
+                    </li>
+                    <li class="mb-4">
+                        <a href="#" class="flex items-center px-4 py-2 text-sm font-medium text-gray-500  hover:text-white rounded">
+                            <span>Airports</span>
+                        </a>
+                    </li>
+                    <li class="mb-4">
+                        <a href="#" class="flex items-center px-4 py-2 text-sm font-medium text-gray-500  hover:text-white rounded">
+                            <span>Flights</span>
+                        </a>
+                    </li>
+                    <li class="mb-4">
+                        <a href="#" class="flex items-center px-4 py-2 text-sm text-gray-500 font-medium hover:text-white rounded">
+                            <button id="dropdownDefaultButton" data-dropdown-toggle="dropdown" class=" font-medium  text-sm text-center inline-flex items-center " type="button">Tickets
+                                <svg class="w-2.5 h-2.5 ms-3 ml-[50px]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 10 6">
+                                <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m1 1 4 4 4-4"/>
+                                </svg>
+                            </button>
+                            
+                        </a>
+                        <div id="dropdown" class="z-10 hidden divide-y divide-gray-100  shadow w-44 bg-[#2A3143] ">
+                            <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="dropdownDefaultButton">
+                             <li class="mb-2 ml-[40px] mx-auto">
+                                <a href="#" class="text-sm text-gray-500 hover:text-white">All Tickets</a>
+                            </li>
+                            <li class="mb-2 ml-[40px]">
+                                <a href="#" class="text-sm text-gray-500 hover:text-white">Pending Tickets</a>
+                            </li>
+                            <li class="mb-2 ml-[40px]">
+                                <a href="#" class="text-sm text-gray-500 hover:text-white">Approved Tickets</a>
+                            </li>
+                            <li class="b-2 ml-[40px]">
+                                <a href="#" class="text-sm text-gray-500 hover:text-white">Canceled Tickets</a>
+                            </li>
+                            </ul>
+                        </div>
+                    </li>
+                    <li class="mb-4">
+                        <a href="#" class="flex items-center px-4 py-2 text-sm text-gray-500  font-medium hover:text-white rounded">
+                            <span>Customers</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+   
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+    // Get the button and the dropdown menu elements
+    const dropdownButton = document.getElementById('dropdownDefaultButton');
+    const dropdownMenu = document.getElementById('dropdown');
+    
+    // Add an event listener to the button to toggle the dropdown
+    dropdownButton.addEventListener('click', function () {
+    dropdownMenu.classList.toggle('hidden'); // Show/hide the dropdown menu
+    });
+    
+    // Close the dropdown menu when clicking outside of it
+    document.addEventListener('click', function (event) {
+    if (!dropdownButton.contains(event.target) && !dropdownMenu.contains(event.target)) {
+      dropdownMenu.classList.add('hidden'); // Hide the menu if clicked outside
+    }
+    });
+    });
+    
+    </script>
+        
+        <!-- Main Content -->
+        <div class="flex-1 p-6">
+            <div class="flex justify-between items-center mb-6">
+                <h1 class="text-2xl font-semibold">All Tickets</h1>
+                <span class="text-sm text-gray-600">Ticket / All Tickets</span>
+            </div>
+
+            <!-- Filters -->
+            <div class="bg-white p-4 rounded-lg shadow mb-6">
+                <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700">Origin</label>
+                        <select class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                            <option>None</option>
+                            <option>Origin 1</option>
+                            <option>Origin 2</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700">Destination</label>
+                        <select class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                            <option>None</option>
+                            <option>Destination 1</option>
+                            <option>Destination 2</option>
+                        </select>
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700">Airline</label>
+                        <select class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                            <option>None</option>
+                            <option>Airline 1</option>
+                            <option>Airline 2</option>
+                        </select>
+                    </div>
+
+                    <div class="flex space-x-2">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700">Departure Time</label>
+                            <input type="date" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700">Arrival Time</label>
+                            <input type="date" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 sm:text-sm">
+                        </div>
+                    </div>
+                </div>
+
+                <button class="mt-4 bg-gray-500 text-white px-4 py-2 rounded-md hover:bg-gray-600">Reset</button>
+            </div>
+
+            <!-- Ticket Table -->
+            <div class="bg-white p-4 rounded-lg shadow">
+                <table class="min-w-full table-auto">
+                    <thead class="bg-gray-50">
+                        <tr>
+                            <th class="px-6 py-2 text-xs text-gray-500">#</th>
+                            <th class="px-6 py-2 text-xs text-gray-500">Customer Name</th>
+                            <th class="px-6 py-2 text-xs text-gray-500">Flight Number</th>
+                            <th class="px-6 py-2 text-xs text-gray-500">Route</th>
+                            <th class="px-6 py-2 text-xs text-gray-500">Time</th>
+                            <th class="px-6 py-2 text-xs text-gray-500">Seat Number</th>
+                            <th class="px-6 py-2 text-xs text-gray-500">Status</th>
+                            <th class="px-6 py-2 text-xs text-gray-500">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody class="bg-white">
+                        <tr>
+                            <td class="px-6 py-4 text-sm text-gray-500" colspan="8">No data available in table</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <!-- Pagination -->
+                <div class="flex justify-between items-center mt-4">
+                    <p class="text-sm text-gray-600">Showing 0 to 0 of 0 entries</p>
+                    <div class="flex space-x-2">
+                        <button class="px-3 py-1 text-sm bg-gray-200 rounded">Previous</button>
+                        <button class="px-3 py-1 text-sm bg-gray-200 rounded">Next</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</body>
+
+]
+
+</html>
