@@ -6,7 +6,8 @@
             <p class="text-gray-500">Plane / Add Plane</p>
         </div>
 
-        <form action="#" method="POST">
+        <form action="{{url ('/admin/plane/store')}}" method="post">
+            @csrf
             <div class="grid grid-cols-1 gap-6 sm:grid-cols-1">
                 
                 <!-- Name field -->
@@ -19,9 +20,9 @@
                 <div class="flex flex-col">
                     <label for="airline" class="text-gray-700">Airline</label>
                     <select id="airline" name="airline" class="mt-1 p-2 border rounded-md shadow-sm focus:outline-none focus:border-indigo-500 focus:ring-indigo-500 focus:ring-1">
-                        <option value="None">None</option>
-                        <option value="Airline1">Airline 1</option>
-                        <option value="Airline2">Airline 2</option>
+                        @foreach ($airline as $airline)
+                        <option value="{{$airline->id}}" selected>{{$airline->name}}</option>
+                        @endforeach
                     </select>
                 </div>
 

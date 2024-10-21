@@ -51,10 +51,21 @@
           </tr>
         </thead>
         <tbody>
-          <!-- No data row -->
+         @foreach ($airport as $airport)
+             
+         
           <tr>
-            <td colspan="6" class="py-4 px-4 text-center text-gray-500">No data available in table</td>
+            <td class="py-4 px-4 text-center text-gray-500">{{$airport->id}}</td>
+            <td class="py-4 px-4 text-center text-gray-500">{{$airport->name}}</td>
+            <td class="py-4 px-4 text-center text-gray-500">{{$airport->created_at}}</td>
+            <td class="py-4 px-4 text-center text-gray-500">
+              <a class="ml-[90px] " href=""><button class="border h-[40px] w-[100px]  text-white rounded-xl bg-[#1454A9]">Update</button></a>
+            </td>
+            <td class="py-4 px-4 text-center text-gray-500">
+              <a class="ml-[90px] " href=""><button class="border h-[40px] w-[100px]  text-white rounded-xl bg-[#1454A9]">Update</button></a>
+            </td>
           </tr>
+          @endforeach 
         </tbody>
       </table>
     </div>

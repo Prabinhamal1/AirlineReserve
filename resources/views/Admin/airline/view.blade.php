@@ -40,22 +40,34 @@
 
       <!-- Table Section -->
       <div class="overflow-x-auto">
-        <table class="min-w-full bg-white rounded-lg border border-gray-200">
+        <table class="w-full bg-white rounded-lg border  border-gray-200">
           <thead>
             <tr class="bg-gray-50 border-b border-gray-200">
-              <th class="py-2 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">#</th>
-              <th class="py-2 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Name</th>
-              <th class="py-2 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Code</th>
-              <th class="py-2 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">No of Planes</th>
-              <th class="py-2 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Created At</th>
-              <th class="py-2 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Action</th>
+              <th class="py-2  text-center text-xs font-medium text-gray-500 uppercase tracking-wider">#</th>
+              <th class="py-2  text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Name</th>
+              <th class="py-2  text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Code</th>
+              <th class="py-2  text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Created At</th>
+              <th colspan="2" class=" text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Action</th>
             </tr>
           </thead>
           <tbody>
+            @foreach ($airlines as $airline ) 
+              
+           
             <!-- No data row -->
             <tr>
-              <td colspan="6" class="py-4 px-4 text-center text-gray-500">No data available in table</td>
+              <td  class="py-4  text-center text-gray-500">{{$airline->id}}</td>
+              <td  class="py-4  text-center text-gray-500">{{$airline->name}}</td>
+              <td  class="py-4  text-center text-gray-500">{{$airline->code}}</td>
+              <td  class="py-4  text-center text-gray-500">{{$airline->created_at}}</td>
+              <td  class="py-4  text-center text-gray-500">
+                <a class="ml-[90px] " href=""><button class="border h-[40px] w-[100px]  text-white rounded-xl bg-[#1454A9]">Update</button></a>
+              </td>
+              <td  class=" text-center text-gray-500">
+                <a class="ml-[90px] " href=""><button class="border h-[40px] w-[100px]  text-white rounded-xl bg-[#1454A9]">Delete</button></a>
+              </td>
             </tr>
+            @endforeach
           </tbody>
         </table>
       </div>

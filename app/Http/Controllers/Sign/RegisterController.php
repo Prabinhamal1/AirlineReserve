@@ -10,4 +10,10 @@ class RegisterController extends Controller
     public function index(){
         return view("Log.register");
     }
+    public function store(Request $request){
+        $data = $request->validate([
+            
+
+        ]);
+    }
 }

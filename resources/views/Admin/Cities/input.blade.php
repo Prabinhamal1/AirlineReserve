@@ -8,7 +8,8 @@
             <p class="text-gray-500">Plane / Add Cities</p>
         </div>
 
-        <form action="#" method="POST">
+        <form action="{{url('/admin/city/store')}}" method="post">
+            @csrf
             <div class="grid grid-cols-1 gap-6 sm:grid-cols-1">
                 
                 <!-- Name field -->

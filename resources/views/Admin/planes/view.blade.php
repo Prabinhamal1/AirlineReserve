@@ -6,7 +6,7 @@
     <!-- Header and Add Airline Button -->
     <div class="flex justify-between items-center mb-4">
       <h2 class="text-lg font-bold">PLANES LIST</h2>
-      <a href="{{url('admin/flight/register')}}">
+      <a href="{{url('admin/plane/register')}}">
       <button class="bg-green-500 hover:bg-green-600 text-white px-4 py-2 rounded-md font-medium flex items-center space-x-2">
         <span>+ Add Plane</span>
       </button>
@@ -40,23 +40,36 @@
 
     <!-- Table Section -->
     <div class="overflow-x-auto">
-      <table class="min-w-full bg-white rounded-lg border border-gray-200">
+      <table class="max-w-full bg-white rounded-lg border border-gray-200">
         <thead>
           <tr class="bg-gray-50 border-b border-gray-200">
-            <th class="py-2 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">#</th>
-            <th class="py-2 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Name</th>
-            <th class="py-2 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Airline</th>
-            <th class="py-2 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Code</th>
-            <th class="py-2 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Capacity</th>
-            <th class="py-2 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Created At</th>
-            <th class="py-2 px-4 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">Action</th>
+            <th class="py-2 px-4 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">#</th>
+            <th class="py-2 px-4 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Name</th>
+            <th class="py-2 px-4 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Airline</th>
+            <th class="py-2 px-4 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Code</th>
+            <th class="py-2 px-4 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Capacity</th>
+            <th class="py-2 px-4 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Created At</th>
+            <th colspan="2" class="py-2 px-4 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Action</th>
           </tr>
         </thead>
         <tbody>
-          <!-- No data row -->
+          @foreach($planes as $planes )
           <tr>
-            <td colspan="6" class="py-4 px-4 text-center text-gray-500">No data available in table</td>
+            <td  class="py-4 px-4 text-center text-gray-500">{{$planes->id}}</td>
+            <td  class="py-4 px-4 text-center text-gray-500">{{$planes->name}}</td>
+            <td  class="py-4 px-4 text-center text-gray-500">{{$planes->airline_id}}</td>
+            <td  class="py-4 px-4 text-center text-gray-500">{{$planes->code}}</td>
+            <td  class="py-4 px-4 text-center text-gray-500">{{$planes->capacity}}</td>
+            <td  class="py-4 px-4 text-center text-gray-500">{{$planes->created_at}}</td>
+            <td  class="py-4 px-[1px] text-center text-gray-500 ">
+              <a class="ml-[90px] " href=""><button class="border h-[40px] w-[100px]  text-white rounded-xl bg-[#1454A9]">Update</button></a>
+            </td>
+            <td  class="py-4 px-[1px] text-center text-gray-500">
+              <a class="mr-[90px] " href=""><button class="border h-[40px] w-[100px] text-white rounded-xl bg-[#1454A9]"> Delete</button></a>
+            </td>
+
           </tr>
+          @endforeach
         </tbody>
       </table>
     </div>

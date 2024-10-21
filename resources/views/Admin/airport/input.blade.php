@@ -9,9 +9,9 @@
             <p class="text-gray-500">Plane / Add Airport</p>
         </div>
 
-        <form action="#" method="POST">
+        <form enctype="multipart/form-data" action="{{URL ('admin/airport/store')}}" method="post">
+            @csrf
             <div class="grid grid-cols-1 gap-6 sm:grid-cols-1">
-                
                 <!-- Name field -->
                 <div class="flex flex-col">
                     <label for="name" class="text-gray-700">Name</label>
@@ -20,15 +20,20 @@
 
                 <!-- Airline field -->
                 <div class="flex flex-col">
-                    <label for="airline" class="text-gray-700">City</label>
-                    <select id="airline" name="airline" class="mt-1 p-2 border rounded-md shadow-sm focus:outline-none focus:border-indigo-500 focus:ring-indigo-500 focus:ring-1">
-                        <option value="None">None</option>
-                        <option value="Airline1">Airline 1</option>
-                        <option value="Airline2">Airline 2</option>
+                    <label for="city" class="text-gray-700">City</label>
+                    <select id="city" name="city" class="mt-1 p-2 border rounded-md shadow-sm focus:outline-none focus:border-indigo-500 focus:ring-indigo-500 focus:ring-1">
+                                      
+                <option value="">None</option>
+                 @foreach ($cities as $city)
+                     
+                 <option value="{{$city->id}}">{{$city->name}}</option>
+                 
+                 @endforeach
+                        
                     </select>
                 </div>
 
-                <!-- Code field -->
+      
                 
             </div>
 
