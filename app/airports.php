@@ -9,4 +9,10 @@ class airports extends Model
 {
     
     use HasFactory;
+    protected $table = 'airports';
+    public function location(){
+        return $this->belongsTo(Cities::class, 'city_id');
+    }
+
+
 }

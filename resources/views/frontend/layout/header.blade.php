@@ -35,23 +35,34 @@
           <div class="flex space-x-4">
             <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
             <a href="/home" class="rounded-md px-3 py-2 text-sm font-medium  hover:bg-[#1454A9] hover:text-[#F6D95A]">Home</a>
-            <a href="/info" class="rounded-md px-3 py-2 text-sm font-medium hover:bg-[#1454A9] hover:text-[#F6D95A]">My Flights</a>
-            <a href="/ticket" class="rounded-md px-3 py-2 text-sm font-medium hover:bg-[#1454A9] hover:text-[#F6D95A]">Tickets</a>
+            @auth
+            
+              
+            
+            <a href="/ticket/{id}" class="rounded-md px-3 py-2 text-sm font-medium hover:bg-[#1454A9] hover:text-[#F6D95A]">Tickets</a>
+            @endauth
             <a href="/contact" class="rounded-md px-3 py-2 text-sm font-medium hover:bg-[#1454A9] hover:text-[#F6D95A]">Contact</a>
             <a href="/about" class="rounded-md px-3 py-2 text-sm font-medium hover:bg-[#1454A9] hover:text-[#F6D95A]">About</a>
           </div>
         </div>
       </div>
       <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
+        @guest
+          
+       
           <a href="/login" class="rounded-md px-3 py-5 mr-5 text-sm font-medium hover:bg-[#1454A9] hover:text-[#F6D95A]">Login</a>
-
+          @endguest
         <!-- Profile dropdown -->
         <div class="relative ml-3">
-          <div>
+          @auth
+            
+          
+          <div class="relative">
               <button id="profileBtn" class="flex items-center space-x-2 focus:outline-none">
                   <img class="h-8 w-8 rounded-full" src="{{URL::asset('/images/img.png')}}" alt="">
               </button>
           </div>
+          @endauth
 
           <!--
             Dropdown menu, show/hide based on menu state.
@@ -63,11 +74,14 @@
               From: "transform opacity-100 scale-100"
               To: "transform opacity-0 scale-95"
           -->
-          <div id="dropdown" class="hidden absolute right-0 mt-2 w-48 bg-white rounded-lg shadow-lg py-2">
+          <div id="dropdown" class="hidden  absolute right-0 mt-2 w-48 bg-white z-50 rounded-lg shadow-lg py-2">
               <!-- Active: "bg-gray-100", Not Active: "" -->
-              <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">Your Profile</a>
-              <a href="/admin/home" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-1">Admin</a>
-              <a href="#" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-2">User</a>
+              @auth
+                
+              
+              <a href="#" class="block px-4 py-2 text-sm text-gray-700 z-40" role="menuitem" tabindex="-1" id="user-menu-item-0">{{Auth::user()->name}}</a>
+              <a href="{{url('/logout')}}" class="block px-4 py-2 text-sm text-gray-700 z-40" role="menuitem" tabindex="-1" id="user-menu-item-2">logout</a>
+              @endauth
           </div>
         </div>
       </div>
@@ -86,6 +100,9 @@
     </div>
   </div>
 </nav>
+
+
+
 
 
 

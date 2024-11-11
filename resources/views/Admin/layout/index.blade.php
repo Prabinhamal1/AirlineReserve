@@ -10,5 +10,6 @@
 <body>
     @include('Admin.layout.nav')
     @yield('main-content')
+    @yield('scripts') 
 </body>
 </html>

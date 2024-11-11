@@ -7,12 +7,17 @@ document.addEventListener('DOMContentLoaded', function () {
     // Add an event listener to the button to toggle the dropdown
     dropdownButton.addEventListener('click', function () {
     dropdownMenu.classList.toggle('hidden'); // Show/hide the dropdown menu
+    dropdown.style.zIndex = 50;
+    
     });
     
     // Close the dropdown menu when clicking outside of it
     document.addEventListener('click', function (event) {
     if (!dropdownButton.contains(event.target) && !dropdownMenu.contains(event.target)) {
-      dropdownMenu.classList.add('hidden'); // Hide the menu if clicked outside
+      dropdownMenu.classList.add('hidden');
+      
+       // Hide the menu if clicked outside
     }
     });
     });
+    

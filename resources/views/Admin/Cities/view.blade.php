@@ -1,7 +1,7 @@
 @extends('Admin.layout.index')
     @section('main-content') 
 <!-- Airline List Section -->
-<section class="container flex-1 mt-10  shadow-2xl border mx-auto my-8">
+<section class="mt-10 border shadow-5xl w-full mx-auto max-h-full my-8">
   <div class="bg-white p-6 rounded-lg shadow-lg">
     <!-- Header and Add Airline Button -->
     <div class="flex justify-between items-center mb-4">
@@ -40,13 +40,13 @@
 
     <!-- Table Section -->
     <div class="overflow-x-auto">
-      <table class="min-w-full bg-white rounded-lg border border-gray-200">
+      <table class="w-full bg-white rounded-lg border border-gray-200">
         <thead>
           <tr class="bg-gray-50 border-b border-gray-200">
             <th class="py-4 px-4 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">#</th>
             <th class="py-4 px-4 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Name</th>
             <th class="py-4 px-4 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Created At</th>
-            <th colspan="2" class="py-4 px-4 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Action</th>
+            <th colspan="2" class="py-2 px-4 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">Action</th>
           </tr>
         </thead>
         <tbody>
@@ -55,11 +55,16 @@
             <td  class="py-4 px-4 text-center text-gray-500">{{$city->id}}</td>
             <td  class="py-4 px-4 text-center text-gray-500">{{$city->name}}</td>
             <td  class="py-4 px-4 text-center text-gray-500">{{$city->created_at}}</td>
-            <td  class="py-4 px-4 text-center text-gray-500 ">
-              <a class="ml-[90px] " href=""><button class="border h-[40px] w-[100px]  text-white rounded-xl bg-[#1454A9]">Update</button></a>
-            </td>
-            <td  class="py-4 px-4 text-center text-gray-500">
-              <a class="mr-[90px] " href=""><button class="border h-[40px] w-[100px] text-white rounded-xl bg-[#1454A9]"> Delete</button></a>
+            <td class="py-4 px-1 text-center text-gray-500">
+              <a href="{{ route('city.edit', $city->id) }}"class="flex justify-center">
+                  <img class="h-8 w-8" src="{{ URL::asset('/images/edit.png') }}" alt="Edit">
+              </a>
+          </td>
+            
+            <td class="py-4 px-1 text-center text-gray-500 my-8">
+              <a href="{{url('admin/city/delete/'.$city->id)}}"class="flex justify-center">
+                  <img class="h-[50px] w-[50px]" src="{{ URL::asset('/images/delete.jpg') }}" alt="Delete">
+              </a>
             </td>
 
           </tr>

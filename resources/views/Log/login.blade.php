@@ -9,12 +9,18 @@
         </a>
       </div>
 
-      <form>
+      <form action="{{url('/login/store')}}" method="post">
+        @csrf
         <div class="space-y-6 ">
           
           <div>
             <label class="text-gray-800 text-sm mb-2 block">Email Id</label>
-            <input name="email" type="text" class="text-gray-800 bg-white border border-gray-300 w-full text-sm px-4 py-3 h-[40px] rounded-md outline-blue-500" placeholder="Enter email" />
+            <input name="email" type="text" class="text-gray-800 bg-white border border-gray-300 w-full text-sm px-4 py-3 h-[40px] rounded-md outline-blue-500" value="{{ old('email') }}" placeholder="Enter email" />
+            @error('email')
+              <span class="text-red-500 text-sm">
+                {{ $message }}
+              </span>
+              @enderror
           </div>
           <div>
             <label class="text-gray-800 text-sm mb-2 block">Password</label>
@@ -23,7 +29,7 @@
       
 
         <div class="mt-10px">
-          <button type="button" class="w-full py-3 px-4 text-sm tracking-wider font-semibold rounded-md \ text-white h-[40px] bg-blue-600 hover:bg-blue-700 focus:outline-none">
+          <button type="submit" class="w-full py-3 px-4 text-sm tracking-wider font-semibold rounded-md \ text-white h-[40px] bg-blue-600 hover:bg-blue-700 focus:outline-none">
            Login
           </button>
         </div>

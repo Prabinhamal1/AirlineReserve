@@ -21,7 +21,7 @@ return new class extends Migration
             $table->dateTime("departure");
             $table->dateTime("arrival");
             $table->integer("seats");
-            $table->integer("remain_seats");
+            // $table->integer("remain_seats");
             $table->boolean('status')->default(true);
             $table->double("price", 6, 2)->comment('in NPR');
         });

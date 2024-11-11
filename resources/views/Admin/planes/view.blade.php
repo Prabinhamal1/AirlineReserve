@@ -1,7 +1,7 @@
 @extends('Admin.layout.index')
     @section('main-content') 
 <!-- Airline List Section -->
-<section class="container flex-1 mt-10 border  shadow-2xl mx-auto my-8">
+<section class="  mt-10 border shadow-5xl w-full mx-auto max-h-full my-8">
   <div class="bg-white p-6 rounded-lg shadow-lg">
     <!-- Header and Add Airline Button -->
     <div class="flex justify-between items-center mb-4">
@@ -40,7 +40,7 @@
 
     <!-- Table Section -->
     <div class="overflow-x-auto">
-      <table class="max-w-full bg-white rounded-lg border border-gray-200">
+      <table class="w-full bg-white rounded-lg border border-gray-200">
         <thead>
           <tr class="bg-gray-50 border-b border-gray-200">
             <th class="py-2 px-4 text-center text-xs font-medium text-gray-500 uppercase tracking-wider">#</th>
@@ -57,16 +57,22 @@
           <tr>
             <td  class="py-4 px-4 text-center text-gray-500">{{$planes->id}}</td>
             <td  class="py-4 px-4 text-center text-gray-500">{{$planes->name}}</td>
-            <td  class="py-4 px-4 text-center text-gray-500">{{$planes->airline_id}}</td>
+            <td  class="py-4 px-4 text-center text-gray-500">{{$planes->airlines->name}}</td>
             <td  class="py-4 px-4 text-center text-gray-500">{{$planes->code}}</td>
             <td  class="py-4 px-4 text-center text-gray-500">{{$planes->capacity}}</td>
             <td  class="py-4 px-4 text-center text-gray-500">{{$planes->created_at}}</td>
-            <td  class="py-4 px-[1px] text-center text-gray-500 ">
-              <a class="ml-[90px] " href=""><button class="border h-[40px] w-[100px]  text-white rounded-xl bg-[#1454A9]">Update</button></a>
-            </td>
-            <td  class="py-4 px-[1px] text-center text-gray-500">
-              <a class="mr-[90px] " href=""><button class="border h-[40px] w-[100px] text-white rounded-xl bg-[#1454A9]"> Delete</button></a>
-            </td>
+           
+            <td class="py-4 px-1 text-center text-gray-500">
+              <a href="{{route('plane.edit',$planes->id)}}" class="flex justify-center">
+                  <img class="h-8 w-8" src="{{ URL::asset('/images/edit.png') }}" alt="Edit">
+              </a>
+          </td>
+          </td>
+          <td class="py-4 px-1 text-center text-gray-500 my-8">
+            <a href="{{url('admin/plane/delete/'.$planes->id)}}"class="flex justify-center">
+                <img class="h-[50px] w-[50px]" src="{{ URL::asset('/images/delete.jpg') }}" alt="Delete">
+            </a>
+          </td>
 
           </tr>
           @endforeach

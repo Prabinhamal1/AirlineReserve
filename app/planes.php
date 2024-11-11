@@ -10,8 +10,7 @@ class planes extends Model
     use HasFactory;
     protected $fillable = ['name', 'airline_id', 'code', 'capacity']; // Specify fillable fields
 
-    public function airline()
-    {
-        return $this->belongsTo(airlines::class); // Relation to Airline
+    public function airlines(){
+        return $this->belongsTo(airlines::class, 'airline_id');
     }
 }

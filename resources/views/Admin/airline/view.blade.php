@@ -1,8 +1,8 @@
 @extends('Admin.layout.index')
     @section('main-content')
   <!-- Airline List Section -->
-  <section class="container flex-1 mt-10 border shadow-2xl mx-auto my-8">
-    <div class="bg-white p-6 rounded-lg shadow-lg">
+  <section class="  mt-10 border shadow-5xl w-full mx-auto max-h-full my-8">
+    <div class="bg-white p-6 rounded-lg shadow-lg ">
       <!-- Header and Add Airline Button -->
       <div class="flex justify-between items-center mb-4">
         <h2 class="text-lg font-bold">AIRLINE LIST</h2>
@@ -56,16 +56,23 @@
            
             <!-- No data row -->
             <tr>
-              <td  class="py-4  text-center text-gray-500">{{$airline->id}}</td>
-              <td  class="py-4  text-center text-gray-500">{{$airline->name}}</td>
-              <td  class="py-4  text-center text-gray-500">{{$airline->code}}</td>
-              <td  class="py-4  text-center text-gray-500">{{$airline->created_at}}</td>
-              <td  class="py-4  text-center text-gray-500">
-                <a class="ml-[90px] " href=""><button class="border h-[40px] w-[100px]  text-white rounded-xl bg-[#1454A9]">Update</button></a>
+              <td  class="py-4 px-4  text-center text-gray-500">{{$airline->id}}</td>
+              <td  class="py-4  px-4  text-center text-gray-500">{{$airline->name}}</td>
+              <td  class="py-4  px-4  text-center text-gray-500">{{$airline->code}}</td>
+              <td  class="py-4  px-4  text-center text-gray-500">{{$airline->created_at}}</td>
+              <td class="py-4 px-1 text-center text-gray-500">
+                <a href="{{route('airline.edit',$airline->id)}}" class="flex justify-center">
+                    <img class="h-8 w-8" src="{{ URL::asset('/images/edit.png') }}" alt="Edit">
+                </a>
+            </td>
+              
+              <td class="py-4 px-1 text-center text-gray-500 my-8">
+                <a href="{{url('admin/airline/delete/'.$airline->id)}}"class="flex justify-center">
+                    <img class="h-[50px] w-[50px]" src="{{ URL::asset('/images/delete.jpg') }}" alt="Delete">
+                </a>
               </td>
-              <td  class=" text-center text-gray-500">
-                <a class="ml-[90px] " href=""><button class="border h-[40px] w-[100px]  text-white rounded-xl bg-[#1454A9]">Delete</button></a>
-              </td>
+              
+  
             </tr>
             @endforeach
           </tbody>
